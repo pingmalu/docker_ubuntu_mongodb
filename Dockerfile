@@ -40,10 +40,6 @@ RUN mkdir -p /app/mongodb/log
 
 RUN wget http://pecl.php.net/get/mongo-1.6.13.tgz -P /root/
 RUN tar -zxvf /root/mongo-1.6.13.tgz -C /root/
-RUN cd /root/mongo-1.6.13/
-RUN phpize
-RUN ./configure
-RUN make install
 
 RUN mkdir /root/.pip
 ADD pip.conf /root/.pip/pip.conf

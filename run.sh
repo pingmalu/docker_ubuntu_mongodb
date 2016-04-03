@@ -34,4 +34,9 @@ sed -i 's/^dbpath=\/var\/lib\/mongodb/dbpath=\/app\/mongodb\/db/' /etc/mongodb.c
 sed -i 's/^logpath=\/var\/log\/mongodb\/mongodb.log/logpath=\/app\/mongodb\/log/' /etc/mongodb.conf
 echo 'extension=mongodb.so' >> /etc/php5/apache2/php.ini
 
+cd /root/mongo-1.6.13/
+phpize
+./configure
+make install
+
 exec /usr/bin/supervisord -n
