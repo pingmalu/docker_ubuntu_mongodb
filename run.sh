@@ -32,5 +32,6 @@ sed -ri -e "s/^upload_max_filesize.*/upload_max_filesize = ${PHP_UPLOAD_MAX_FILE
 sed -i 's/^bind_ip = 127.0.0.1/bind_ip = 0.0.0.0/' /etc/mongodb.conf
 sed -i 's/^dbpath=\/var\/lib\/mongodb/dbpath=\/app\/mongodb\/db/' /etc/mongodb.conf
 sed -i 's/^logpath=\/var\/log\/mongodb\/mongodb.log/logpath=\/app\/mongodb\/log/' /etc/mongodb.conf
+echo 'extension=mongodb.so' >> /etc/php5/apache2/php.ini
 
 exec /usr/bin/supervisord -n

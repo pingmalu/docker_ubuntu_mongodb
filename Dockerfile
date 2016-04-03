@@ -9,7 +9,7 @@ RUN mkdir -p /var/run/sshd && sed -i "s/UsePrivilegeSeparation.*/UsePrivilegeSep
 RUN apt-get install -y build-essential g++ curl libssl-dev git vim libxml2-dev python-software-properties software-properties-common byobu htop man unzip lrzsz wget supervisor apache2 libapache2-mod-php5 redis-server php5-redis pwgen php-apc php5-mcrypt && \
   echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN apt-get install -y python-pip python-pyside xvfb
-RUN apt-get install -y mongodb
+RUN apt-get install -y mongodb php5-dev
 
 # Add files.
 ADD home/.bashrc /home/.bashrc
@@ -37,6 +37,13 @@ RUN mkdir -p /app/www && rm -fr /var/www/html && ln -s /app/www /var/www/html
 RUN mkdir -p /app/data
 RUN mkdir -p /app/mongodb/db
 RUN mkdir -p /app/mongodb/log
+
+RUN wget http://pecl.php.net/get/mongo-1.6.13.tgz -P /root/
+RUN tar -zxvf /root/mongo-1.6.13.tgz -C /root/
+RUN cd /root/mongo-1.6.13/
+RUN phpize
+RUN ./configure
+RUN make install
 
 RUN mkdir /root/.pip
 ADD pip.conf /root/.pip/pip.conf
