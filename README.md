@@ -1,6 +1,6 @@
-# docker_ubuntu.ghost.py
+# docker_ubuntu_mongodb
 
-### Docker Ghost.py开发环境
+### Docker mongodb开发环境
 
 - ROOT_PASS= **ChangeMe**
 - REDIS_PASS= **ChangeMe**
