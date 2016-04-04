@@ -38,9 +38,6 @@ RUN mkdir -p /app/data
 RUN mkdir -p /app/mongodb/db
 RUN mkdir -p /app/mongodb/log
 
-RUN wget http://pecl.php.net/get/mongo-1.6.13.tgz -P /root/
-RUN tar -zxvf /root/mongo-1.6.13.tgz -C /root/
-
 RUN mkdir /root/.pip
 ADD pip.conf /root/.pip/pip.conf
 #ADD msyh.ttf /usr/share/fonts/msyh.ttf
