@@ -36,7 +36,6 @@ RUN a2enmod rewrite
 RUN mkdir -p /app/www && rm -fr /var/www/html && ln -s /app/www /var/www/html
 RUN mkdir -p /app/data
 RUN mkdir -p /app/mongodb/db
-RUN mkdir -p /app/mongodb/log
 
 RUN mkdir /root/.pip
 ADD pip.conf /root/.pip/pip.conf
